@@ -72,15 +72,97 @@ section h2 {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     margin-top: 15%;
-    background-color: #ffebf024; 
+    background: linear-gradient(90deg, #9b9a9abe, #ffffff85)
 }
 #About { background-color: #c6e5eb; }
 #projects { background-color: #e8f5e9; }
 #skills { background-color: #fff3e0; }
 #publications { background-color: #ede7f6; }
-#contact { 
+/* #contact { 
     margin-bottom: 8%;
     background-color: #fbe9e7; 
+} */
+/* Contact Section Styling */
+#contact {
+    background: linear-gradient(90deg, #965de4be, #9863e385);
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 20px 20px 20px 20px;
+    margin-bottom: 8%;
+    transition: transform 0.3s ease-in-out;
+}
+
+#contact:hover {
+    transform: translateY(-5px);
+}
+
+/* Contact Header */
+#contact h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #0b0b0b;
+}
+
+/* Contact Details */
+#contact p {
+    font-size: 18px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Contact Icons */
+#contact p i {
+    font-size: 22px;
+    color: #f7f7f6;
+}
+
+/* Contact Links */
+/* #contact a {
+    color: #7ed2f0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+#contact a:hover {
+    color: #8dfff2e2;
+    text-decoration: underline;
+} */
+ /* Contact Links */
+#contact a {
+    color: #7ed2f0;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect on Links */
+#contact a:hover {
+    color: #8dfff2e2;
+    text-decoration: none;
+    transform: scale(1.1);
+}
+
+/* Glowing Underline Animation */
+#contact a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #dff5f2e2;
+    transition: width 0.3s ease-in-out;
+}
+
+#contact a:hover::after {
+    width: 100%;
 }
 section.visible {
     opacity: 1;
@@ -127,7 +209,7 @@ a {
 .next { right: 10px; }
 
 footer {
-    background: #333;
+    background: linear-gradient(90deg, #333, #555);
     color: white;
     text-align: center;
     padding: 5px 25px;
