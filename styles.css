@@ -182,7 +182,7 @@ footer {
         border-radius: 50%;
         object-fit: cover;
         position: absolute;
-        top: 50px;
+        top: 55px;
         right: 50px;
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
