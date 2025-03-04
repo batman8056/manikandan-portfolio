@@ -154,16 +154,156 @@ footer {
 }
 /* Mobile screen */
 @media (max-width: 480px) {
+    /* Header Styling */
     header {
-        padding: 10px;
-        font-size: 14px;
+        background: linear-gradient(90deg, #1e1e1e, #3a3a3a);
+        color: white;
+        padding: 20px 20px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     }
+    header > h1{
+        margin-top: 0;
+        font-size: 25px;
+        margin-left: 0px;
+    }
+
+    /* Profile Image */
+    .profile-img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .profile-img:hover {
+        transform: scale(1.2) rotate(5deg);
+        box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.4);
+    }
+
+    /* Navigation Button (Hamburger Menu) */
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 15px 15px;
+        position: absolute;
+        left: 15px;
+        top: 31px;
+    }
+
+    /* Hide the default nav list */
+    nav ul {
+        display: none;
+        list-style: none;
+        padding: 20px;
+        margin: 0;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Show menu when active */
+    nav ul.active {
+        display: block;
+    }
+
+    /* Navigation Links */
+    nav ul li {
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 12px 15px;
+        display: block;
+        transition: background 0.3s ease-in-out, color 0.2s ease-in-out;
+    }
+
+    nav ul li a:hover {
+        background: rgba(255, 204, 0, 0.2);
+        color: #ffcc00;
+    }
+
+
+    /* Section Styling */
     section {
-        padding: 15px;
-        margin: 130px 5px 10px 5px;
+        padding: 20px;
+        margin-top: 90px; /* Adjusted to prevent overlap with fixed header */
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
     }
+
+    section h2 {
+        text-align: center;
+        font-size: 20px;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    section p {
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: center;
+        color: #555;
+    }
+    #home { 
+        margin-top: 35%;
+        background-color: #fce4ec0f; 
+    }
+    #contact { 
+        margin-bottom: 20%;
+        background-color: #fbe9e7; 
+    }
+    /* Footer Styling */
     footer {
+        background: #222;
+        color: white;
+        text-align: center;
         padding: 10px;
         font-size: 14px;
+        margin-top: 20px;
+        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
     }
+
+    /* Button Styling */
+    /* .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        background: #ffcc00;
+        color: #222;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+        background: #ffaa00;
+        transform: scale(1.05);
+    } */
+
 }
