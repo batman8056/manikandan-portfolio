@@ -263,7 +263,7 @@ footer {
         text-align: center;
         font-size: 20px;
         color: #222;
-        margin-bottom: 10px;
+        margin-top: 0px;
     }
 
     section p {
@@ -273,7 +273,7 @@ footer {
         color: #555;
     }
     #home { 
-        margin-top: 40%;
+        margin-top: 37%;
         background-color: #fce4ec0f; 
     }
     #contact { 
