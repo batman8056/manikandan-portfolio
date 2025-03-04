@@ -23,7 +23,7 @@ header {
     border-radius: 50%;
     object-fit: cover;
     position: absolute;
-    top: 20px;
+    top: 25px;
     right: 70px;
     transition: transform 0.3s ease-in-out;
 }
@@ -53,7 +53,7 @@ nav ul li a:hover {
 }
 section {
     padding: 20px;
-    margin: 50px 20px 20px 20px;
+    margin: 20px 20px 20px 20px;
     background: white;
     border-radius: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -63,7 +63,8 @@ section {
 }
 
 #home { 
-    margin-top: 10%;
+    text-align: center;
+    margin-top: 15%;
     background-color: #fce4ec0f; 
 }
 #projects { background-color: #e8f5e9; }
@@ -250,7 +251,8 @@ footer {
     /* Section Styling */
     section {
         padding: 20px;
-        margin-top: 90px; /* Adjusted to prevent overlap with fixed header */
+        margin: 20px 20px 20px 20px;
+        /* margin-top: 90px; Adjusted to prevent overlap with fixed header */
         background: white;
         border-radius: 10px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -271,7 +273,7 @@ footer {
         color: #555;
     }
     #home { 
-        margin-top: 35%;
+        margin-top: 40%;
         background-color: #fce4ec0f; 
     }
     #contact { 
