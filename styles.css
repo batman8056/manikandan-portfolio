@@ -290,7 +290,7 @@ footer {
     }
 
     /* Button Styling */
-    /* .btn {
+    .btn {
         display: inline-block;
         padding: 10px 15px;
         background: #ffcc00;
@@ -304,6 +304,6 @@ footer {
     .btn:hover {
         background: #ffaa00;
         transform: scale(1.05);
-    } */
+    }
 
 }
