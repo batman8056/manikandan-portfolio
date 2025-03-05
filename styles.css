@@ -96,51 +96,39 @@ section h2 {
     z-index: -1; /* Sends canvas behind content */
 }
 /* About Section */
-#about {
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-}
-
-/* Slide down effect */
-#about.hidden {
-    transform: translateY(50%);
-    opacity: 0;
-}
-
-/* Projects Section */
 #projects {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
     position: relative;
+    margin-top: 2%;
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
 }
+
+/* Slide down effect */
 #projects.hidden {
     transform: translateY(50%);
     opacity: 0;
 }
 
-
-/* Skills Section */
+/* Projects Section */
 #skills {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
     position: relative;
     overflow: hidden;
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
 }
 #skills.hidden {
     transform: translateY(50%);
     opacity: 0;
 }
-/* Publications Section */
-#publications {
+
+
+/* Skills Section */
+#experience {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
@@ -148,7 +136,20 @@ section h2 {
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out
 }
-#publications.hidden {
+#experience.hidden {
+    transform: translateY(50%);
+    opacity: 0;
+}
+/* Publications Section */
+#eduction {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out
+}
+#eduction.hidden {
     transform: translateY(50%);
     opacity: 0;
 }

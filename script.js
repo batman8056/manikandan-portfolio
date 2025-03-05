@@ -53,7 +53,7 @@ function showSlide(n) {
     const totalSlides = document.querySelectorAll(".slide").length;
     index = (n + totalSlides) % totalSlides;
     slides.style.transform = `translateX(${-index * 100}%)`;
-    // playGlassBreak(); //sound effect disable 
+    playGlassBreak(); //sound effect disable 
 }
 
 function nextSlide() {
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         draw() {
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 4);
             ctx.fillStyle = "#ffffff85";
             ctx.fill();
             ctx.closePath();
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 let distance = Math.sqrt(dx * dx + dy * dy);
 
                 if (distance < maxDistance) {
-                    ctx.strokeStyle = `rgba(0, 255, 204, ${1 - distance / maxDistance})`;
+                    ctx.strokeStyle = `rgba(0, 0, 0, ${1 - distance / maxDistance})`;
                     ctx.lineWidth = 2;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("scroll", function () {
     const homeSection = document.getElementById("home");
     const scrollPosition = window.scrollY;
-    const triggerPoint = window.innerHeight * 0.1; // 10% from the top
+    const triggerPoint = window.innerHeight * 0.01; // 10% from the top
 
     if (scrollPosition > 50) {
         homeSection.classList.add("hidden"); // Slide down
@@ -190,7 +190,7 @@ document.addEventListener("scroll", function () {
 });
 
 document.addEventListener("scroll", function () {
-    const aboutSection = document.getElementById("about");
+    const aboutSection = document.getElementById("projects");
     const aboutPosition = aboutSection.getBoundingClientRect().top;
     const triggerPoint = window.innerHeight * 0.1; // 10% from the top
 
@@ -200,5 +200,45 @@ document.addEventListener("scroll", function () {
         aboutSection.classList.remove("hidden"); // Reset when scrolling up
     }
 });
+document.addEventListener("scroll", function () {
+    const aboutSection = document.getElementById("skills");
+    const scrollPosition = window.scrollY;
+    if (scrollPosition < 50) {
+        aboutSection.classList.add("hidden"); // Slide down
+    } else {
+        aboutSection.classList.remove("hidden"); // Reset when scrolling up
+    }
+});
+document.addEventListener("scroll", function () {
+    const aboutSection = document.getElementById("experience");
+    const aboutPosition = aboutSection.getBoundingClientRect().top;
+    const triggerPoint = window.innerHeight * 0.1; // 10% from the top
 
+    if (aboutPosition < triggerPoint) {
+        aboutSection.classList.add("hidden"); // Slide down
+    } else {
+        aboutSection.classList.remove("hidden"); // Reset when scrolling up
+    }
+});
+document.addEventListener("scroll", function () {
+    const aboutSection = document.getElementById("eduction");
+    const aboutPosition = aboutSection.getBoundingClientRect().top;
+    const triggerPoint = window.innerHeight * 0.1; // 10% from the top
 
+    if (aboutPosition < triggerPoint) {
+        aboutSection.classList.add("hidden"); // Slide down
+    } else {
+        aboutSection.classList.remove("hidden"); // Reset when scrolling up
+    }
+});
+document.addEventListener("scroll", function () {
+    const aboutSection = document.getElementById("contact");
+    const aboutPosition = aboutSection.getBoundingClientRect().top;
+    const triggerPoint = window.innerHeight * 0.1; // 10% from the top
+
+    if (aboutPosition < triggerPoint) {
+        aboutSection.classList.add("hidden"); // Slide down
+    } else {
+        aboutSection.classList.remove("hidden"); // Reset when scrolling up
+    }
+});
