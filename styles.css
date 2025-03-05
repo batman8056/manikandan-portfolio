@@ -76,7 +76,7 @@ section h2 {
     text-align: center;
     background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
     position: relative;
-    margin-top: 10%;
+    margin-top: 14%;
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
 }
