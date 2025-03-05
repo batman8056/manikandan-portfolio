@@ -132,13 +132,13 @@ document.addEventListener("DOMContentLoaded", function () {
             this.y += this.vy;
 
             // Bounce off walls
-            if (this.x <= 0 || this.x >= canvas.width) this.vx *= -1;
-            if (this.y <= 0 || this.y >= canvas.height) this.vy *= -1;
+            if (this.x <= 2 || this.x >= canvas.width) this.vx *= -1;
+            if (this.y <= 2 || this.y >= canvas.height) this.vy *= -1;
         }
 
         draw() {
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 4);
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 1);
             ctx.fillStyle = "#ffffff85";
             ctx.fill();
             ctx.closePath();
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (distance < maxDistance) {
                     ctx.strokeStyle = `rgba(0, 0, 0, ${1 - distance / maxDistance})`;
-                    ctx.lineWidth = 2;
+                    ctx.lineWidth = 0.5;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
