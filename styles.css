@@ -143,7 +143,7 @@ section h2 {
     opacity: 0;
 }
 /* Publications Section */
-#eduction {
+#education {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
@@ -151,7 +151,7 @@ section h2 {
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out
 }
-#eduction.hidden {
+#education.hidden {
     transform: translateY(50%);
     opacity: 0;
 }
@@ -160,7 +160,6 @@ section h2 {
     background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
     color: rgb(255, 255, 255);
     padding: 20px;
-    text-align: center;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     margin: 20px 20px 20px 20px;
@@ -170,24 +169,6 @@ section h2 {
 
 #contact:hover {
     transform: translateY(-5px);
-}
-
-/* Contact Header */
-#contact h2 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 28px;
-    margin-bottom: 15px;
-    color: #0b0b0b;
-}
-
-/* Contact Details */
-#contact p {
-    font-size: 18px;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
 }
 
 /* Contact Icons */
@@ -832,7 +813,6 @@ footer {
         background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
         color: rgb(255, 255, 255);
         padding: 20px;
-        text-align: center;
         border-radius: 10px;
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
         margin: 20px 20px 20px 20px;
@@ -845,26 +825,26 @@ footer {
     }
     
     /* Contact Header */
-    #contact h2 {
+    /* #contact h2 {
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        font-size: 28px;
+        font-size: 25px;
         margin-bottom: 15px;
         color: #0b0b0b;
-    }
+    } */
     
     /* Contact Details */
-    #contact p {
+    /* #contact p {
         font-size: 18px;
         margin: 10px 0;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
-    }
+    } */
     
     /* Contact Icons */
     #contact p i {
-        font-size: 22px;
+        font-size: 10px;
         color: #f7f7f6;
     }
      /* Contact Links */

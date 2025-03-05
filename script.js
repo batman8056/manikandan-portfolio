@@ -240,7 +240,7 @@ document.addEventListener("scroll", function () {
     }
 });
 document.addEventListener("scroll", function () {
-    const aboutSection = document.getElementById("eduction");
+    const aboutSection = document.getElementById("education");
     const aboutPosition = aboutSection.getBoundingClientRect().top;
     const triggerPoint = window.innerHeight * 0.1; // 10% from the top
 
