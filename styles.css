@@ -651,8 +651,7 @@ footer {
     header > h1{
         margin-top: 13px;
         margin-left: 45px;
-        font-size: 15px;
-        text-align: center;
+        font-size: 16px;
     }
 
     /* Profile Image */
@@ -662,7 +661,7 @@ footer {
         border-radius: 50%;
         object-fit: cover;
         position: absolute;
-        top: 28px;
+        top: 27.5px;
         right: 61px;
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
