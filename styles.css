@@ -637,7 +637,7 @@ footer {
     header {
         background: linear-gradient(90deg, #1e1e1e, #3a3a3a);
         color: white;
-        padding: 20px 20px;
+        padding: 17px 20px;
         position: fixed;
         width: 100%;
         top: 0;
@@ -661,7 +661,7 @@ footer {
         border-radius: 50%;
         object-fit: cover;
         position: absolute;
-        top: 27.5px;
+        top: 27px;
         right: 61px;
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
@@ -692,10 +692,10 @@ footer {
         padding: 20px;
         margin: 0;
         position: absolute;
-        top: 80px;
+        top: 75px;
         left: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.419);
         text-align: center;
         transition: all 0.3s ease-in-out;
     }
@@ -721,8 +721,8 @@ footer {
     }
 
     nav ul li a:hover {
-        background: rgba(255, 204, 0, 0.2);
-        color: #ffcc00;
+        background: rgba(92, 91, 87, 0.2);
+        color: #000000;
     }
 
 
