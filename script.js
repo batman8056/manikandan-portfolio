@@ -275,17 +275,7 @@ document.addEventListener("scroll", function () {
         aboutSection.classList.remove("hidden"); // Reset when scrolling up
     }
 });
-document.addEventListener("scroll", function () {
-    const aboutSection = document.getElementById("contact");
-    const aboutPosition = aboutSection.getBoundingClientRect().top;
-    const triggerPoint = window.innerHeight * 0.1; // 10% from the top
 
-    if (aboutPosition < triggerPoint) {
-        aboutSection.classList.add("hidden"); // Slide down
-    } else {
-        aboutSection.classList.remove("hidden"); // Reset when scrolling up
-    }
-});
 
 document.addEventListener("DOMContentLoaded", function () {
     const projectContainers = document.querySelectorAll(".project-container");
@@ -399,5 +389,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", checkScroll);
     checkScroll(); // Initial check on page load
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".hidden");
+
+    function checkVisibility() {
+        elements.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            if (rect.top <= windowHeight * 0.85 && rect.bottom >= 0) {
+                el.classList.add("show");
+            } else {
+                el.classList.remove("show");  // Ensure re-animation when scrolling up
+            }
+        });
+    }
+
+    window.addEventListener("scroll", checkVisibility);
+    checkVisibility(); // Run initially in case elements are already in view
 });
 

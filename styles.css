@@ -1,10 +1,10 @@
 /* Desktop screen size */
 @media (min-width: 768px) and (max-width: 1700px){
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
     }
 header {
     background: linear-gradient(90deg, #333, #555);
@@ -78,7 +78,7 @@ section h2 {
     text-align: center;
     background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
     position: relative;
-    margin-top: 8%;
+    margin-top: 10%;
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
 }
@@ -387,52 +387,90 @@ section h2 {
 #contact {
     background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
     color: rgb(255, 255, 255);
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    margin: 20px 20px 20px 20px;
-    margin-bottom: 5%;
-    transition: transform 0.3s ease-in-out;
+    margin: 20px;
+    margin-bottom: 6%;
 }
 
+/* 🔹 Hover Effect (Subtle Lift) */
 #contact:hover {
     transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Contact Icons */
-#contact p i {
-    font-size: 22px;
-    color: #f7f7f6;
+/* Initially hide the contact elements */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
- /* Contact Links */
+
+/* When in view, apply animation */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* 🔹 Add delay for each child element (sequential pop-up effect) */
+
+p.hidden:nth-child(2) {
+    transition-delay: 0.4s;
+}
+p.hidden:nth-child(3) {
+    transition-delay: 0.6s;
+}
+p.hidden:nth-child(4) {
+    transition-delay: 0.8s;
+}
+
+/* 🔹 Contact Icons */
+#contact p i {
+    font-size: 20px;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* 🔹 Icon Hover Effect */
+#contact p i:hover {
+    color: #8dfff2;
+    transform: scale(1.2);
+}
+
+/* 🔹 Contact Links */
 #contact a {
     color: #7ed2f0;
     text-decoration: none;
     font-weight: bold;
+    font-size: 18px;
     position: relative;
-    transition: all 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Hover Effect on Links */
+/* 🔹 Hover Effect on Links */
 #contact a:hover {
-    color: #8dfff2e2;
-    text-decoration: none;
+    color: #8dfff2;
     transform: scale(1.1);
 }
 
-/* Glowing Underline Animation */
+/* 🔹 Glowing Underline Animation */
 #contact a::after {
     content: "";
     display: block;
     width: 0;
     height: 2px;
-    background: #dff5f2e2;
+    background: #dff5f2;
     transition: width 0.3s ease-in-out;
 }
 
 #contact a:hover::after {
-    width: 100%;
+    width: 80%;
 }
+
+
+
+/*  whole section visible*/
 section.visible {
     opacity: 1;
     transform: translateY(0);
