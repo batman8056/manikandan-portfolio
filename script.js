@@ -256,7 +256,7 @@ document.addEventListener("scroll", function () {
 document.addEventListener("scroll", function () {
     const aboutSection = document.getElementById("experience");
     const aboutPosition = aboutSection.getBoundingClientRect().top;
-    const triggerPoint = window.innerHeight * 0.1; // 10% from the top
+    const triggerPoint = window.innerHeight * -0.1; // 10% from the top
 
     if (aboutPosition < triggerPoint) {
         aboutSection.classList.add("hidden"); // Slide down
