@@ -382,18 +382,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    function revealTimelineItems() {
-        let items = document.querySelectorAll(".timeline-item");
-        let windowHeight = window.innerHeight;
-        items.forEach(item => {
-            let position = item.getBoundingClientRect().top;
-            if (position < windowHeight - 50) {
-                item.classList.add("visible");
+    const timelineItems = document.querySelectorAll(".timeline-item");
+
+    function checkScroll() {
+        const triggerBottom = window.innerHeight * 0.85; // Adjust trigger point based on viewport height
+        timelineItems.forEach((item, index) => {
+            const itemTop = item.getBoundingClientRect().top;
+            if (itemTop < triggerBottom) {
+                item.classList.add("show");
+                item.style.transitionDelay = `${index * 0.2}s`; // Staggered animation effect
             } else {
-                item.classList.remove("visible");
+                item.classList.remove("show");
             }
         });
     }
-    window.addEventListener("scroll", revealTimelineItems);
-    revealTimelineItems();
+
+    window.addEventListener("scroll", checkScroll);
+    checkScroll(); // Initial check on page load
 });
+

@@ -230,31 +230,118 @@ section h2 {
     transform: translateY(50%);
     opacity: 0;
 }
-/* .timeline {
+.experiencetimeline {
     position: relative;
-    max-width: 800px;
+    max-width: 1600px;
     margin: auto;
-} */
-
-.timeline-item {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.6s ease-in-out;
-    position: relative;
-    padding: 5px;
-    border-radius: 10px;
-    border-left: 4px solid #007bff;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 20px;
 }
 
-.timeline-item.visible {
+.timeline-item {
+    position: relative;
+    padding: 20px;
+    width: 80%;
+    margin-left: 3%;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateX(100px);
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+/* When scrolled into view */
+.timeline-item.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 .timeline-content {
-    padding: 10px 20px;
+    text-align: left;
+}
+
+/* Title Styling */
+.position-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Company Name Styling */
+.company {
+    font-size: 18px;
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* Employment Duration Styling */
+.employment-duration {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Domain Styling */
+.project-domain {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* List Styling */
+.experience-details {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.experience-details li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Custom Bullet Point */
+.experience-details li::before {
+    content: "✔";
+    position: absolute;
+    left: -20px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Timeline Vertical Line */
+.experiencetimeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 2%;
+    width: 2px;
+    height: 100%;
+    background: #606162;
+    transform: translateX(-50%);
+}
+
+/* Logo Between Timeline */
+.timeline-logo {
+    position: absolute;
+    left: 2%;
+    transform: translateX(-50%);
+    top: 40%;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline-logo img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.timeline-logo img:hover {
+    transform: scale(1.2);
 }
 /* education Section */
 #education {
