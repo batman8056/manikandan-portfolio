@@ -30,6 +30,9 @@ let index = 0;
 let isScrolling = false;
 let isHomeVisible = true; // Track home visibility
 const glassBreakSound = document.getElementById("glassBreak");
+const slides = document.querySelector(".slides");
+const totalSlides = document.querySelectorAll(".slide").length;
+let slideInterval;
 
 // Function to play glass break sound only if home is visible and not scrolling
 function playGlassBreak() {
@@ -39,14 +42,16 @@ function playGlassBreak() {
     }
 }
 
+// Function to stop glass break sound
+function stopGlassBreak() {
+    glassBreakSound.pause();
+    glassBreakSound.currentTime = 0;
+}
+
 // Function to show slide with sound effect
 function showSlide(n) {
-    const slides = document.querySelector(".slides");
-    const totalSlides = document.querySelectorAll(".slide").length;
-    
     index = (n + totalSlides) % totalSlides;
     slides.style.transform = `translateX(${-index * 100}%)`;
-
     playGlassBreak(); // Play sound only if conditions are met
 }
 
@@ -58,26 +63,42 @@ function prevSlide() {
     showSlide(index - 1);
 }
 
-// Automatic sliding every 4 seconds (only if home is visible)
-setInterval(() => {
-    if (isHomeVisible && !isScrolling) {
-        nextSlide();
+// Function to start auto-sliding if home is visible
+function startAutoSlide() {
+    if (!slideInterval) {
+        slideInterval = setInterval(() => {
+            if (isHomeVisible && !isScrolling) {
+                nextSlide();
+            }
+        }, 4000);
+        
+        // Play sound when the first slide starts
+        playGlassBreak();
     }
-}, 5000);
+}
 
-// Detect scrolling and disable sound
+// Function to stop auto-sliding and sound
+function stopAutoSlide() {
+    clearInterval(slideInterval);
+    slideInterval = null;
+    stopGlassBreak(); // Stop the glass break sound when home slides down
+}
+
+// Detect scrolling and update home visibility
 document.addEventListener("scroll", function () {
     isScrolling = true;
-
-    // Disable sound effect when scrolling
-    glassBreakSound.pause();
-    glassBreakSound.currentTime = 0;
 
     // Check if the home section is visible
     const homeSection = document.getElementById("home");
     const homePosition = homeSection.getBoundingClientRect();
-    
     isHomeVisible = homePosition.top >= 0 && homePosition.bottom <= window.innerHeight;
+
+    // Start or stop the slider based on home visibility
+    if (isHomeVisible) {
+        startAutoSlide();
+    } else {
+        stopAutoSlide();
+    }
 
     // Reset scrolling state after a delay
     clearTimeout(window.scrollTimeout);
@@ -85,6 +106,10 @@ document.addEventListener("scroll", function () {
         isScrolling = false;
     }, 500);
 });
+
+// Start the slider when the page loads
+startAutoSlide();
+
 
 
 
@@ -260,4 +285,115 @@ document.addEventListener("scroll", function () {
     } else {
         aboutSection.classList.remove("hidden"); // Reset when scrolling up
     }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const projectContainers = document.querySelectorAll(".project-container");
+
+    function revealProjects() {
+        projectContainers.forEach(container => {
+            const position = container.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.5;
+
+            if (position < screenPosition) {
+                container.classList.add("visible");
+            } else {
+                container.classList.remove("visible"); // Reset when scrolling up
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealProjects);
+    revealProjects(); // Initial check on page load 
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const projectContainers = document.querySelectorAll(".education-item");
+
+    function revealProjects() {
+        projectContainers.forEach(container => {
+            const position = container.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+
+            if (position < screenPosition) {
+                container.classList.add("visible");
+            } else {
+                container.classList.remove("visible"); // Reset when scrolling up
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealProjects);
+    revealProjects(); // Initial check on page load education-item
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const skillsContainer = document.getElementById("skillsContainer");
+
+    // Skill Data with Online Logo URLs
+    const skills = [
+        { name: "JavaScript", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { name: "Python", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "HTML5", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { name: "CSS3", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { name: "Node.js", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "React.js", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "AWS", url: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+        { name: "VS Code", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+        { name: "Postman", url: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
+        { name: "MongoDB", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "PostgreSQL", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+        { name: "Git", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "JIRA", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
+        { name: "Bitbucket", url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" },
+        { name: "Confluence", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/confluence/confluence-original.svg" }
+    ];
+
+    // Dynamically Create Skill Logos
+    skills.forEach(skill => {
+        const div = document.createElement("div");
+        div.classList.add("skill-logo", "hidden"); // Initially hidden for animation effect
+        div.innerHTML = `<img src="${skill.url}" alt="${skill.name}" title="${skill.name}">`;
+        skillsContainer.appendChild(div);
+    });
+
+    // Reveal Animation on Scroll
+    function revealSkills() {
+        const skillLogos = document.querySelectorAll(".skill-logo");
+        skillLogos.forEach((logo, index) => {
+            const position = logo.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+
+            if (position < screenPosition) {
+                setTimeout(() => {
+                    logo.classList.add("visible");
+                    logo.classList.remove("hidden");
+                }, index * 150);
+            } else {
+                logo.classList.remove("visible");
+                logo.classList.add("hidden");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealSkills);
+    revealSkills(); // Run on load in case any are already in view
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    function revealTimelineItems() {
+        let items = document.querySelectorAll(".timeline-item");
+        let windowHeight = window.innerHeight;
+        items.forEach(item => {
+            let position = item.getBoundingClientRect().top;
+            if (position < windowHeight - 50) {
+                item.classList.add("visible");
+            } else {
+                item.classList.remove("visible");
+            }
+        });
+    }
+    window.addEventListener("scroll", revealTimelineItems);
+    revealTimelineItems();
 });
