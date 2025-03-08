@@ -25,7 +25,7 @@ header {
     border-radius: 50%;
     object-fit: cover;
     position: absolute;
-    top: 25px;
+    top: 23px;
     right: 70px;
     transition: transform 0.3s ease-in-out;
 }
@@ -82,6 +82,10 @@ section h2 {
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
 }
+#home:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+}
 
 /* Slide down when hidden */
 #home.hidden {
@@ -112,42 +116,30 @@ section h2 {
     transform: translateY(50%);
     opacity: 0;
 }
-/* Timeline Structure */
-.timeline {
-    max-width: 1000px;
-    margin: auto;
+#projects:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
 }
-
-/* Vertical Timeline Line */
-.line {
-    position: absolute;
-    left: 16px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #7f8182;
-    border-radius: 5px;
-}
-
 /* Project Container */
 .project-container {
-    transform: translateX(50px);
+    position: relative;
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 9px 50px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    text-align: left;
     opacity: 0;
+    transform: translateX(100px); /* Starts off-screen */
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
 }
 
-/* Reveal Animation (Slides Left) */
+/* Reveal Animation */
 .project-container.visible {
-    transform: translateX(-250px); /* Moves slightly left */
+    transform: translateX(0); /* Moves into view */
     opacity: 1;
 }
-
-/* Content Styling */
-.content {
-    text-align: left;
-    margin-left: 50px; /* Push right to align with timeline */
-}
-
+/* Text Styling */
 .content h3 {
     font-size: 22px;
     color: #222;
@@ -179,6 +171,10 @@ section h2 {
     position: relative;
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+#skills:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
 }
 #skills.hidden {
     transform: translateY(50%);
@@ -225,6 +221,11 @@ section h2 {
     position: relative;
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out
+}
+/* 🔹 Hover Effect (Subtle Lift) */
+#experience:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
 }
 #experience.hidden {
     transform: translateY(50%);
@@ -301,9 +302,9 @@ section h2 {
 
 /* Custom Bullet Point */
 .experience-details li::before {
-    content: "✔";
+    content: "⭐";
     position: absolute;
-    left: -20px;
+    left: -22px;
     color: #007bff;
     font-weight: bold;
 }
@@ -342,45 +343,52 @@ section h2 {
 .timeline-logo img:hover {
     transform: scale(1.2);
 }
-/* education Section */
+/* Education Section */
 #education {
-    font-family: 'Times New Roman', Times, serif;
     background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
-    position: relative;
-    margin-top: 2%;
-    overflow: hidden;
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    color: rgb(255, 255, 255);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+    margin-bottom: 7.5%;
+}
+/* 🔹 Hover Effect (Subtle Lift) */
+#education:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
 }
 #education.hidden {
     transform: translateY(50%);
     opacity: 0;
 }
-/* education Container */
-.education-container {
-    position: relative;
-    max-width: 600px;
-    margin: auto;
-}
 
-/* Each Education Item */
+
 .education-item {
     position: relative;
-    margin: 20px 0;
-    padding-left: 30px;
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    text-align: left;
     opacity: 0;
-    transform: translateX(100px); /* Starts from right */
+    transform: translateX(100px); /* Starts off-screen */
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
 }
 
-/* Content Styling */
+/* Highlighted Content */
 .education-content {
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.3);
+    border-left: 5px solid #ffffff; /* Highlight Border */
 }
-/* Reveal Animation (Slides Left) */
+
+/* Reveal Animation */
 .education-item.visible {
-    transform: translateX(-250px); /* Moves slightly left */
+    transform: translateX(0); /* Moves into view */
     opacity: 1;
 }
 /* Contact Section Styling */
@@ -391,7 +399,7 @@ section h2 {
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     margin: 20px;
-    margin-bottom: 6%;
+    margin-bottom: 7.5%;
 }
 
 /* 🔹 Hover Effect (Subtle Lift) */
@@ -403,7 +411,7 @@ section h2 {
 /* Initially hide the contact elements */
 .hidden {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(12px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -1073,6 +1081,15 @@ footer {
     #eduction.hidden {
         transform: translateY(50%);
         opacity: 0;
+    }
+    .education-item {
+        padding: 15px;
+    }
+    .education-content {
+        font-size: 14px;
+    }
+    .line {
+        left: 20px; /* Adjust timeline for smaller screens */
     }
     /* Contact Section Styling */
     #contact {

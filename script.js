@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("scroll", function () {
     const homeSection = document.getElementById("home");
     const scrollPosition = window.scrollY;
-    const triggerPoint = window.innerHeight * 0.01; // 10% from the top
+    const triggerPoint = window.innerHeight * 0.1; // 10% from the top
 
     if (scrollPosition > 50) {
         homeSection.classList.add("hidden"); // Slide down
@@ -256,7 +256,7 @@ document.addEventListener("scroll", function () {
 document.addEventListener("scroll", function () {
     const aboutSection = document.getElementById("experience");
     const aboutPosition = aboutSection.getBoundingClientRect().top;
-    const triggerPoint = window.innerHeight * -0.2; // 10% from the top
+    const triggerPoint = window.innerHeight * -0.2; // 20% from the top
 
     if (aboutPosition < triggerPoint) {
         aboutSection.classList.add("hidden"); // Slide down
@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function revealProjects() {
         projectContainers.forEach(container => {
             const position = container.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.5;
+            const screenPosition = window.innerHeight / 1.3;
 
             if (position < screenPosition) {
                 container.classList.add("visible");
