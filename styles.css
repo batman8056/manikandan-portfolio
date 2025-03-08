@@ -1017,7 +1017,7 @@ p.hidden:nth-child(4) {
 
 /* 🔹 Contact Icons */
 #contact p i {
-    font-size: 20px;
+    font-size: 15px;
     transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
