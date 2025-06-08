@@ -549,7 +549,7 @@ footer {
         text-align: center;
         background: linear-gradient(90deg, #1e1e1e, #3a3a3a);
         color: white;
-        padding: 17px 17px;
+        padding: 17px 16px;
         position: fixed;
         width: 100%;
         top: 0;
@@ -598,58 +598,56 @@ footer {
     left: 10px;
     top: 10px;
     z-index: 1000;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .nav-toggle:hover {
-    color: #00ffc8; /* Soft cyan or accent color */
-    transform: scale(1.1);
+    color: #f7f7f7e2; /* Soft cyan or accent color */
+    /* transform: scale(1.1); */
 }
 
 .nav-toggle:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 255, 200, 0.3);
+    box-shadow: 0 0 0 3px rgba(244, 244, 244, 0.89);
 }
 
-    /* Hide the default nav list */
-    nav ul {
-        display: none;
-        list-style: none;
-        padding: 20px;
-        margin: 0;
-        position: absolute;
-        top: 90px;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.419);
-        text-align: center;
-        transition: all 0.3s ease-in-out;
-    }
+/* Base nav list hidden by default for mobile */
+nav ul {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    padding: 15px 0;
+    margin: 0;
+    position: absolute;
+    top: 75px; /* Adjust as per your header height */
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.327); /* Darker for better visibility */
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+}
 
-    /* Show menu when active */
-    nav ul.active {
-        display: block;
-    }
+/* Optional visible class to show menu when toggled */
+nav ul.active {
+    display: flex;
+}
 
-    /* Navigation Links */
-    nav ul li {
-        padding: 8px 0;
-    }
+/* Optional styling for links inside nav */
+nav ul li {
+    padding: 12px 0;
+}
 
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 18px;
-        padding: 8px 15px;
-        display: block;
-        transition: background 0.3s ease-in-out, color 0.2s ease-in-out;
-    }
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
 
-    nav ul li a:hover {
-        background: rgba(92, 91, 87, 0.2);
-        color: #000000;
-    }
+nav ul li a:hover {
+    color: #00ffc8;
+}
 
 
     /* Section Styling */
