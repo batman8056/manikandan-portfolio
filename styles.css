@@ -1,31 +1,128 @@
 /* Desktop screen size */
 @media (min-width: 768px) and (max-width: 1700px){
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+     background: radial-gradient(ellipse at top, #1a202c, #0f172a);  /*dark bluish gradient */
+    color: #0f172a; 
     }
+
+/* === HEADER === */
 header {
-    background: linear-gradient(90deg, #333, #555);
-    color: white;
-    padding: 5px 17px;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 17px;
+  background: #0f172a;
+  color: #f8fafc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 1000;
 }
+
+/* === STARFIELD LAYER === */
+header .stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: 
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+  animation: animateStars 60s linear infinite;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+/* === Movement Animation === */
+@keyframes animateStars {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100px, -100px);
+  }
+}
+/* === Twinkling Opacity Animation === */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+/* === Shooting Star Base === */
+.shooting-star {
+
+    left: 10%;
+    /* animation-delay: 40s; */
+    top: 5%;
+
+  position: absolute;
+  top: 0;
+  /* left: 50%; */
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(45deg, white, transparent);
+  opacity: 0;
+  transform: rotate(45deg);
+  animation: shoot 9s linear infinite;
+  z-index: 1;
+}
+
+/* Delay variants */
+.shooting-star.delay-1 {
+  animation-delay: 1.5s;
+}
+
+.shooting-star.delay-2 {
+  animation-delay: 3s;
+}
+
+/* === Shooting Star Animation === */
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scaleY(0.5);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-60px, 60px) rotate(45deg) scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-400px, 400px) rotate(45deg) scaleY(0.5);
+  }
+}
+
+/* === NAV TOGGLE, H1, PROFILE === */
+.nav-toggle,
+header h1,
+.profile-img,
+nav {
+  /* position: relative; */
+  z-index: 2; /* Keeps them above stars */
+}
+
+/* Optional: Responsive & Styling Touches */
+/* .profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  border: 2px solid white;
+} */
 .profile-img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
     position: absolute;
-    top: 23px;
+    top: 10px;
     right: 70px;
     transition: transform 0.3s ease-in-out;
 }
@@ -33,33 +130,40 @@ header {
     transform: scale(1.2) rotate(10deg);
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5);
 }
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-nav ul li {
-    margin: 0 15px;
-}
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
-}
-nav ul li a:hover {
-    color: #ffcc00;
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
 }
 
+/* Navigation Styles */
+nav ul {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+nav ul li a {
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #38bdf8; /* Tailwind sky-400 shade for glow */
+}
+
+
 section {
+    /* background: #ffffff; */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     padding: 20px;
     margin: 20px 20px 20px 20px;
-    background: white;
     border-radius: 15px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     opacity: 0;
     position: relative;
     overflow: hidden;
@@ -70,17 +174,32 @@ section h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
     font-size: 25px;
-    color: #222;
+    color: #38bdf8; /* Electric blue */
+    text-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
     margin-top: 0px;
 }
 #home {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
+    /* background: linear-gradient(90deg, #9b9a9abe, #ffffff85); */
     position: relative;
     margin-top: 10%;
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+.intro-text {
+    /* max-width: 900px; */
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+    background: rgba(15, 23, 42, 0.6); /* Soft dark glass effect */
+    backdrop-filter: blur(8px);
+    text-align: center;
+    
+}
+.intro-text strong {
+    color: #38bdf8; /* Highlighted keywords */
 }
 #home:hover {
     transform: translateY(-5px);
@@ -104,7 +223,7 @@ section h2 {
 /* projects Section */
 #projects {
     font-family: 'Times New Roman', Times, serif;
-    background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
+    /* background: linear-gradient(90deg, #9b9a9abe, #ffffff85); */
     position: relative;
     margin-top: 2%;
     overflow: hidden;
@@ -126,7 +245,7 @@ section h2 {
     margin: 30px 0;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 9px 50px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 50px rgba(9, 8, 8, 0.288);
     backdrop-filter: blur(5px);
     text-align: left;
     opacity: 0;
@@ -140,34 +259,37 @@ section h2 {
     opacity: 1;
 }
 /* Text Styling */
+/* Text Styling for Dark Theme */
 .content h3 {
     font-size: 22px;
-    color: #222;
+    color: #f8fafc; /* Light text for dark bg */
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .content p {
     font-size: 16px;
-    line-height: 1.6;
-    color: #444;
+    line-height: 1.8;
+    color: #cbd5e1; /* Subtle light gray for readability */
+    margin-bottom: 15px;
 }
 
 .content a {
-    color: #007bff;
+    color: #38bdf8; /* Sky blue for links */
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     transition: color 0.3s ease-in-out;
 }
 
 .content a:hover {
-    color: #0056b3;
+    color: #0ea5e9; /* Brighter blue on hover */
 }
 
 /* skills Section */
 #skills {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
+    /* background: linear-gradient(90deg, #9b9a9abe, #ffffff85); */
     position: relative;
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
@@ -217,7 +339,7 @@ section h2 {
 #experience {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
-    background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
+    /* background: linear-gradient(90deg, #9b9a9abe, #ffffff85); */
     position: relative;
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out
@@ -263,27 +385,27 @@ section h2 {
 /* Title Styling */
 .position-title {
     font-size: 22px;
-    font-weight: bold;
-    color: #333;
+    font-weight: 600;
+    color: #f8fafc; /* Light shade for dark background */
 }
 
 /* Company Name Styling */
 .company {
     font-size: 18px;
-    color: #007bff;
+    color: #38bdf8; /* Sky blue */
     font-weight: 600;
 }
 
 /* Employment Duration Styling */
 .employment-duration {
     font-size: 14px;
-    color: #666;
+    color: #94a3b8; /* Soft gray-blue */
     font-style: italic;
 }
 
 /* Domain Styling */
 .project-domain {
-    color: #28a745;
+    color: #4ade80; /* Emerald green */
     font-weight: bold;
 }
 
@@ -296,18 +418,20 @@ section h2 {
 .experience-details li {
     margin-bottom: 8px;
     font-size: 16px;
-    color: #444;
+    color: #cbd5e1; /* Muted light text */
     line-height: 1.6;
     position: relative;
 }
+
 /* Custom Bullet Point */
 .experience-details li::before {
     content: "⭐";
     position: absolute;
     left: -22px;
-    color: #007bff;
+    color: #38bdf8; /* Sky blue stars */
     font-weight: bold;
 }
+
 
 /* Timeline Vertical Line */
 .experiencetimeline::before {
@@ -323,6 +447,7 @@ section h2 {
 
 /* Logo Between Timeline */
 .timeline-logo {
+    transition: transform 0.4s ease;
     position: absolute;
     left: 2%;
     transform: translateX(-50%);
@@ -343,57 +468,110 @@ section h2 {
 .timeline-logo img:hover {
     transform: scale(1.2);
 }
+/* Add class for scroll down (move up) */
+.timeline-logo.scroll-down {
+    transform: translate(-50%, -150px); /* Slight upward shift */
+}
+
+/* Add class for scroll up (move down) */
+.timeline-logo.scroll-up {
+    transform: translate(-50%, 150px); /* Slight downward shift */
+}
+
 /* Education Section */
 #education {
-    background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
-    color: rgb(255, 255, 255);
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-    margin: 20px;
-    margin-bottom: 7.5%;
+    background: rgba(15, 23, 42, 0.8); /* Dark navy translucent */
+    color: #f1f5f9;
+    padding: 40px 20px;
+    border-radius: 15px;
+    /* margin: 40px auto; */
+    /* width: 90%; */
+    /* max-width: 1000px; */
+    position: relative;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
 }
-/* 🔹 Hover Effect (Subtle Lift) */
-#education:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+
+/* Timeline vertical line */
+#education::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 3px;
+    height: 100%;
+    background: #38bdf8; /* Sky blue */
+    z-index: 0;
 }
+
+/* Reveal animation on scroll */
 #education.hidden {
     transform: translateY(50%);
     opacity: 0;
 }
+#education:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.6);
+}
 
-
+/* Each item in the timeline */
 .education-item {
-    position: relative;
-    margin: 30px 0;
-    padding: 20px;
+    /* position: relative; */
+    background: rgba(30, 41, 59, 0.8); /* Darker blue box */
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-    text-align: left;
+    margin: 30px 0 30px 50px;
+    padding: 20px 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     opacity: 0;
-    transform: translateX(100px); /* Starts off-screen */
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    transform: translateX(100px);
+    transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-/* Highlighted Content */
-.education-content {
-    padding: 15px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.3);
-    border-left: 5px solid #ffffff; /* Highlight Border */
+/* Left dot on timeline */
+.education-item::before {
+    content: "";
+    position: absolute;
+    left: -40px; /* adjust based on image size */
+    top: 20px;
+    width: 40px;   /* set according to image size */
+    height: 40px;
+    background-image: url('./image/degree.PNG'); /* replace with your PNG path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none; /* remove border */
+    border-radius: 50%; /* optional, only if image is circular */
+    z-index: 2;
 }
 
-/* Reveal Animation */
+
+/* Slide-in animation */
 .education-item.visible {
-    transform: translateX(0); /* Moves into view */
+    transform: translateX(0);
     opacity: 1;
 }
+
+/* Highlighted education content inside the box */
+.education-content {
+    border-left: 5px solid #38bdf8;
+    padding-left: 20px;
+}
+
+.education-content h4 {
+    color: #e2e8f0;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.education-content p {
+    color: #cbd5e1;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
 /* Contact Section Styling */
 #contact {
-    background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
+    /* background: linear-gradient(90deg, #9b9a9abe, #ffffff85); */
     color: rgb(255, 255, 255);
     padding: 25px;
     border-radius: 10px;
@@ -473,7 +651,7 @@ p.hidden:nth-child(4) {
 }
 
 #contact a:hover::after {
-    width: 80%;
+    width: 100%;
 }
 
 
@@ -524,33 +702,109 @@ a {
 .next { right: 10px; }
 
 footer {
-    background: linear-gradient(90deg, #333, #555);
-    color: white;
-    text-align: center;
-    padding: 5px 25px;
-    position: fixed;
-    bottom: 0;
-    height: 40px;
-    width: 100%;
-    margin-top: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #0f172a;
+  color: #cbd5e1;
+  padding: 5px 25px;
+  text-align: center;
+  font-size: 14px;
+  overflow: hidden;
+  z-index: 1000;
 }
+
+/* === STARFIELD === */
+footer .stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 100px 100px, 150px 150px, 200px 200px;
+  background-position: 0 0, 50px 50px, 100px 100px;
+  animation: animateStars 60s linear infinite, twinkle 2s ease-in-out infinite;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* === SHOOTING STARS IN FOOTER === */
+footer .shooting-star {
+  position: absolute;
+  top: -20px;
+  left: 20%;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(45deg, white, transparent);
+  opacity: 0;
+  transform: rotate(45deg);
+  animation: shoot 9s linear infinite;
+  z-index: 1;
+}
+
+footer .shooting-star.delay-1 {
+  animation-delay: 1.5s;
+}
+footer .shooting-star.delay-2 {
+  animation-delay: 3s;
+}
+
+/* === KEYFRAMES === */
+@keyframes animateStars {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100px, -100px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scaleY(0.5);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-60px, 60px) rotate(45deg) scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-400px, 400px) rotate(45deg) scaleY(0.5);
+  }
+}
+
 }
 
 
 /* Tab and Mobile screen */
 @media (min-width: 0px) and (max-width: 768px){
     body {
-        font-family: Arial, sans-serif;
+        background-color: #f1f5f9; /* Light slate */
+        color: #0f172a; /* Dark slate text */
+        font-family: 'Poppins', sans-serif;
+        /* font-family: Arial, sans-serif; */
         margin: 0;
         padding: 0;
-        background-color: #f4f4f4;
+        /* background-color: #f4f4f4; */
     }
     /* Header Styling */
     header {
+        background-color: #0f172a; /* Dark navy */
+        color: #f8fafc;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         text-align: center;
-        background: linear-gradient(90deg, #1e1e1e, #3a3a3a);
-        color: white;
-        padding: 17px 16px;
+        /* background: linear-gradient(90deg, #1e1e1e, #3a3a3a);
+        color: white; */
+        padding: 17px 17px;
         position: fixed;
         width: 100%;
         top: 0;
@@ -559,24 +813,48 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); */
+    }
+    header .stars {
+  /* position: absolute; */
+    top: 0;
+    left: 0;
+    background-image: 
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 100px 100px;
+    background-position: 0 0, 50px 50px;
+    animation: animateStars 60s linear infinite;
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+    }
+
+    @keyframes animateStars {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100px, -100px);
+    }
     }
    
     header > h1{
         margin-top: 5%;
         font-size: 0.9rem; /* Smaller font size on mobile */
-        margin-right: 7%;
+        margin-right: 9%;
     }
 
     /* Profile Image */
     .profile-img {
-        width: 37px;
-        height: 37px;
-        /* padding: 10px 14px; */
+        /* border: 3px solid #14b8a6; */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         object-fit: cover;
         position: absolute;
-        top: 18px;
+        top: 20px;
         right: 40px;
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
@@ -588,18 +866,25 @@ footer {
 
     /* Navigation Button (Hamburger Menu) */
     .nav-toggle {
-    display: block;
-    background: transparent;
+    background-color: #29e0e000;
+    color: #fff;
     border: none;
-    color: white;
-    font-size: 24px;
+    padding: 10px 16px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    /* background: transparent; */
+    /* border: none; */
+    /* color: white; */
+    font-size: 15px;
+    /* cursor: pointer; */
     padding: 10px 14px;
     position: absolute;
     left: 10px;
-    top: 10px;
+    top: 15px;
     z-index: 1000;
-    transition: transform 0.2s ease, color 0.2s ease;
+    /* transition: transform 0.2s ease, color 0.2s ease; */
 }
 
 .nav-toggle:hover {
@@ -614,6 +899,8 @@ footer {
 
 /* Base nav list hidden by default for mobile */
 nav ul {
+
+
     display: none;
     flex-direction: column;
     list-style: none;
@@ -647,7 +934,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #00ffc8;
+    color: #38bdf8;
+    /* color: #00ffc8; */
 }
 
 
@@ -1125,16 +1413,46 @@ cursor: pointer;
 }
 .prev { left: 10px; }
 .next { right: 10px; }
+
 /* Footer Styling */
 footer {
-background: #222;
-color: white;
-text-align: center;
-padding: 10px;
-font-size: 14px;
+    background-color: #0f172a;
+    color: #cbd5e1;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+
+/* background: #222; */
+/* color: white; */
+/* text-align: center; */
+/* padding: 10px; */
+/* font-size: 14px; */
 margin-top: 20px;
 box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
 margin-bottom: 0%;
+}
+footer #stars {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  background-image: 
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+  animation: animateStars 60s linear infinite;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes animateStars {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100px, -100px);
+  }
 }
 
 /* Button Styling */

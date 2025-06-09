@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     canvas.height = window.innerHeight;
 
     let particles = [];
-    const numParticles = 150;
+    const numParticles = 200;
     const maxDistance = 80;
 
     class Particle {
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (distance < maxDistance) {
                     ctx.strokeStyle = `rgba(0, 0, 0, ${1 - distance / maxDistance})`;
-                    ctx.lineWidth = 0.5;
+                    ctx.lineWidth = 0.8;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -420,5 +420,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", checkVisibility);
     checkVisibility(); // Run initially in case elements are already in view
+});
+
+
+let lastScrollTop = 0;
+const logo = document.querySelector(".timeline-logo");
+
+window.addEventListener("scroll", function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        logo.classList.remove("scroll-down");
+        logo.classList.add("scroll-up");
+    } else {
+        // Scrolling up
+        logo.classList.remove("scroll-up");
+        logo.classList.add("scroll-down");
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Safari bounce
 });
 
