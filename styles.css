@@ -533,8 +533,8 @@ section h2 {
     position: absolute;
     left: -40px; /* adjust based on image size */
     top: 20px;
-    width: 60px;   /* set according to image size */
-    height: 60px;
+    width: 65px;   /* set according to image size */
+    height: 70px;
     background-image: url('./image/getting\ degree.png'); /* replace with your PNG path */
     background-size: cover;
     background-repeat: no-repeat;
