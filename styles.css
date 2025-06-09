@@ -535,7 +535,7 @@ section h2 {
     top: 20px;
     width: 65px;   /* set according to image size */
     height: 70px;
-    background-image: url('./image/getting\ degree.png'); /* replace with your PNG path */
+    background-image: url('./image/degree\ gett.png'); /* replace with your PNG path */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -602,14 +602,14 @@ section h2 {
 
 /* 🔹 Add delay for each child element (sequential pop-up effect) */
 
-p.hidden:nth-child(1) {
+p.hidden:nth-child(2) {
     transition-delay: 0.4s;
 }
-p.hidden:nth-child(2) {
-    transition-delay: 0.6s;
-}
 p.hidden:nth-child(3) {
-    transition-delay: 0.8s;
+    transition-delay: 0.5s;
+}
+p.hidden:nth-child(4) {
+    transition-delay: 0.7s;
 }
 
 /* 🔹 Contact Icons */
