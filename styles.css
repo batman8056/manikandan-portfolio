@@ -602,13 +602,13 @@ section h2 {
 
 /* 🔹 Add delay for each child element (sequential pop-up effect) */
 
-p.hidden:nth-child(2) {
+p.hidden:nth-child(1) {
     transition-delay: 0.4s;
 }
-p.hidden:nth-child(3) {
+p.hidden:nth-child(2) {
     transition-delay: 0.6s;
 }
-p.hidden:nth-child(4) {
+p.hidden:nth-child(3) {
     transition-delay: 0.8s;
 }
 
