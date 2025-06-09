@@ -237,6 +237,7 @@ section h2 {
     margin: auto;
 }
 
+
 .timeline-item {
     position: relative;
     padding: 20px;
@@ -807,7 +808,7 @@ nav ul li a:hover {
     
     
 /* experience Section */
-#experience {
+.mobexperience {
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     background: linear-gradient(90deg, #9b9a9abe, #ffffff85);
@@ -815,21 +816,34 @@ nav ul li a:hover {
     overflow: hidden;
     transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out
 }
-/* 🔹 Hover Effect (Subtle Lift) */
-#experience:hover {
-    transform: translateY(-5px);
+.mobexperience:hover {
+    transform: translateY(-10px);
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
 }
-#experience.hidden {
-    transform: translateY(50%);
+
+/* 🔹 Hidden state for slide-in effect */
+/* .mobexperience.hidden {
+    transform: translateY(150px);
     opacity: 0;
+    transition: all 0.5s ease;
+} */
+
+/* 🔹 Show state (optional if you use JS to toggle) */
+.mobexperience.show {
+    transform: translateY(0);
+    opacity: 1;
 }
-.experiencetimeline {
+
+#experiencetimeline {
     position: relative;
     max-width: 1600px;
     margin: auto;
     }
-
+#mobexperiencetimeline {
+    position: relative;
+    max-width: 1600px;
+    margin: auto;
+}
 .timeline-item {
     position: relative;
     padding: 20px;
@@ -880,12 +894,12 @@ text-align: left;
 }
 
 /* List Styling */
-.experience-details {
+#mobexperience-details {
     margin-top: 10px;
     padding-left: 20px;
 }
 
-.experience-details li {
+#mobexperience-details li {
 margin-bottom: 8px;
 font-size: 16px;
 color: #444;
@@ -893,7 +907,7 @@ line-height: 1.6;
 position: relative;
 }
 /* Custom Bullet Point */
-.experience-details li::before {
+#mobexperience-details li::before {
 content: "⭐";
 position: absolute;
 left: -22px;
@@ -918,7 +932,7 @@ transform: translateX(-50%);
 position: absolute;
 left: 2%;
 transform: translateX(-50%);
-top: 40%;
+top: 45%;
 border-radius: 50%;
 box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 display: flex;
@@ -948,11 +962,11 @@ transform: scale(1.2);
 }
 /* 🔹 Hover Effect (Subtle Lift) */
 #education:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
 }
 #education.hidden {
-    transform: translateY(50%);
+    transform: translateY(20%);
     opacity: 0;
 }
 

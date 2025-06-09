@@ -264,10 +264,21 @@ document.addEventListener("scroll", function () {
         aboutSection.classList.remove("hidden"); // Reset when scrolling up
     }
 });
+// document.addEventListener("scroll", function () {
+//     const aboutSection = document.getElementsByClassName("mobexperience");
+//     const aboutPosition = aboutSection.getBoundingClientRect().top;
+//     const triggerPoint = window.innerHeight * -0.2; // 20% from the top
+
+//     if (aboutPosition < triggerPoint) {
+//         aboutSection.classList.add("hidden"); // Slide down
+//     } else {
+//         aboutSection.classList.remove("hidden"); // Reset when scrolling up
+//     }
+// });
 document.addEventListener("scroll", function () {
     const aboutSection = document.getElementById("education");
     const aboutPosition = aboutSection.getBoundingClientRect().top;
-    const triggerPoint = window.innerHeight * 0.1; // 10% from the top
+    const triggerPoint = window.innerHeight * -0.3; // 10% from the top
 
     if (aboutPosition < triggerPoint) {
         aboutSection.classList.add("hidden"); // Slide down
