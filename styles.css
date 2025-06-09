@@ -460,8 +460,8 @@ section h2 {
 }
 
 .timeline-logo img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -533,9 +533,9 @@ section h2 {
     position: absolute;
     left: -40px; /* adjust based on image size */
     top: 20px;
-    width: 40px;   /* set according to image size */
-    height: 40px;
-    background-image: url('./image/degree.PNG'); /* replace with your PNG path */
+    width: 60px;   /* set according to image size */
+    height: 60px;
+    background-image: url('./image/getting\ degree.png'); /* replace with your PNG path */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
